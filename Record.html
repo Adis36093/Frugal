@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<title>Frugal records</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"
+      integrity=""
+      crossorigin="anonymous"
+  ></script>
+  <style>
+      #grad
+        {
+			background-image:linear-gradient(cadetblue, cornflowerblue);
+		}
+         
+		.container
+		{
+			height:30px;
+			width:300px;
+			margin-left:41%;
+			
+		}
+
+		#year
+		{
+			background-color:white;
+			margin-left:3px;
+		}
+
+		#month
+		{
+			background-color:white;
+			
+		}
+
+		#date
+		{
+			background-color:white;
+		}
+		
+		section
+        {
+        	margin-left:65%;
+			margin-top:30%;
+		}
+
+		table
+		{
+			border-collapse:collapse;
+			margin-left:23%;
+			margin-top:2%;
+			width:50%;
+			height:30%
+		}
+
+		table, th, td
+		{
+			border:1px solid black;
+			
+		}
+
+		th, td
+		{
+			padding:5px;
+			text-align:left;
+		}
+
+		tr:nth-child(odd)
+		{
+			background-color:#f5f5f5;
+		}
+
+		tr:nth-child(even)
+		{
+			background-color:rgb(238,232,170);
+		}
+
+		th
+		{
+			background-color:#4CAF50;
+			color:white;
+			
+		}
+
+		a
+		{
+			text-decoration:none;
+		}
+
+		section 
+        {
+			margin-left:9%;
+			margin-top:3%
+		}
+		
+		#logout
+        {
+        	margin-left:15%;
+        	margin-top:9%;
+			background-color:red;
+			color:black;
+		}
+
+		h3{
+			text-align:center;
+			font-family: "Monospace";
+            font-size: 22px;
+		}
+
+		.btn
+		{
+			border-radius:30px;
+		}
+
+		img
+		{
+			width:30px;
+			height:30px;
+		}
+
+		label
+		{
+			margin-left:20%;
+			margin-top:-1%;
+		}
+
+		#totalPrice
+		{
+			margin-left:1%;
+		}
+
+		#total
+		{
+			margin-left:83%;
+		}
+
+        
+
+  </style>
+</head>
+
+<body id="grad">
+	<h3>DATE</h3>
+
+	<div class=container>
+			<select id="year" name="year" autofocus>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+				<option value="2022">2022</option>
+				<option value="2023">2023</option>
+				<option value="2024">2024</option>
+				<option value="2025">2025</option>
+				<option value="2026">2026</option>
+				<option value="2027">2027</option>
+				<option value="2028">2028</option>
+				<option value="2029">2029</option>
+				<option value="2030">2030</option>
+			</select>
+
+			<select id="month" name="month">
+				<option value="January">January</option>
+				<option value="February">February</option>
+				<option value="March">March</option>
+				<option value="April">April</option>
+				<option value="May">May</option>
+				<option value="June">June</option>
+				<option value="July">July</option>
+				<option value="August">August</option>
+				<option value="September">September</option>
+				<option value="October">October</option>
+				<option value="November">November</option>
+				<option value="December">December</option>
+			</select>
+			
+			<select id="date" name="date">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+			</select>
+	</div>
+	<br>
+	<br>
+	<div>
+	   <form action="Script.js">
+	   <div style="overflow-y:auto;">
+	   <table>
+			<tr>
+				<th>Item</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Total Price</th>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="number" id="quantity1" name="quantity" value></td>
+				<td><input type="number" id="price1" name="price" value></td>
+				<td><input type="number" id="result1" name="result1" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="number" id="quantity2" name="quantity" value></td>
+				<td><input type="number" id="price2" name="price" value></td>
+				<td><input type="number" id="result2" name="result2" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity3" name="quantity" value></td>
+				<td><input type="text" id="price3" name="price" value></td>
+				<td><input type="text" id="result3" name="result3" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity4" name="quantity" value></td>
+				<td><input type="text" id="price4" name="price" value></td>
+				<td><input type="text" id="result4" name="result4" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity5" name="quantity" value></td>
+				<td><input type="text" id="price5" name="price" value></td>
+				<td><input type="text" id="result5" name="result5" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity6" name="quantity" value></td>
+				<td><input type="text" id="price6" name="price" value></td>
+				<td><input type="text" id="result6" name="result6" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity7" name="quantity" value></td>
+				<td><input type="text" id="price7" name="price" value></td>
+				<td><input type="text" id="result7" name="result7" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity8" name="quantity" value></td>
+				<td><input type="text" id="price8" name="price" value></td>
+				<td><input type="text" id="result8" name="result8" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity9" name="quantity" value></td>
+				<td><input type="text" id="price9" name="price" value></td>
+				<td><input type="text" id="result9" name="result9" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity10" name="quantity" value></td>
+				<td><input type="text" id="price10" name="price" value></td>
+				<td><input type="text" id="result10" name="result10" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity11" name="quantity" value></td>
+				<td><input type="text" id="price11" name="price" value></td>
+				<td><input type="text" id="result11" name="result11" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity12" name="quantity" value></td>
+				<td><input type="text" id="price12" name="price" value></td>
+				<td><input type="text" id="result12" name="result12" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity13" name="quantity" value></td>
+				<td><input type="text" id="price13" name="price" value></td>
+				<td><input type="text" id="result13" name="result13" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity14" name="quantity" value></td>
+				<td><input type="text" id="price14" name="price" value></td>
+				<td><input type="text" id="result14" name="result14" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity15" name="quantity" value></td>
+				<td><input type="text" id="price15" name="price" value></td>
+				<td><input type="text" id="result15" name="result15" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity16" name="quantity" value></td>
+				<td><input type="text" id="price16" name="price" value></td>
+				<td><input type="text" id="result16" name="result16" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity17" name="quantity" value></td>
+				<td><input type="text" id="price17" name="price" value></td>
+				<td><input type="text" id="result17" name="result17" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity18" name="quantity" value></td>
+				<td><input type="text" id="price18" name="price" value></td>
+				<td><input type="text" id="result18" name="result18" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity19" name="quantity" value></td>
+				<td><input type="text" id="price19" name="price" value></td>
+				<td><input type="text" id="result19" name="result19" value></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="item" name="item" value></td>
+				<td><input type="text" id="quantity20" name="quantity" value></td>
+				<td><input type="text" id="price20" name="price" value></td>
+				<td><input type="text" id="result20" name="result20" value></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		<button type="button" id="total" class="btn btn-success"><b>SUBMIT</b></button>
+	</div>
+	<section>
+	    <label for="totalExpenseOfTheDay"><b>TOTAL EXPENSE OF THE DAY:</b></label>
+	    <input type="text" id="totalExpenseOfTheDay" name="totalExpenseOfTheDay" value>
+	</section>
+	<div class="container">
+	<button type="button" id="logout" class="btn btn-warning"><a href="home.html">Logout</a></button>
+	</div>
+	<script src="./Script.js"></script>
+</body>
+</html>

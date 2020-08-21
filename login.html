@@ -1,0 +1,112 @@
+<DOCTYPE! html>
+<html lang="en">
+<head>
+	<title>LOGIN</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"
+      integrity=""
+      crossorigin="anonymous"></script>
+
+  <style>
+	    h1
+		{
+			text-align:center;
+			font-family:'"Comic Sans MS", cursive, sans-serif';
+			color:brown;
+			margin-top:20%;
+		}
+		
+		.form-control
+		{
+			width:240px;
+			margin-top:40%;
+			margin-left:14%;
+			border-radius:5px;
+		}
+
+		.btn
+		{
+			margin-left:37%;
+		}
+
+		.column
+		{
+			float:left;
+			padding:10px;
+			height:500px;
+			
+		}
+
+		.left
+		{
+			width:240px;
+		}
+
+		.right
+		{
+			width:360px;
+		}
+
+		img
+		{
+			margin-left:30%;
+			margin-top:70%;
+			height:120px;
+			width:120px;
+		}
+
+		.form
+		{
+			border-style:none;
+			width:360px;
+			height:300px;
+		}
+
+		.row:after
+		{
+			content:"";
+			display:table;
+			clear:both;
+		}
+
+		
+		.row
+		{
+			height:300px;
+			margin-left:30%;
+			margin-top:7%;
+		}
+
+		#usernameErrorMessage
+		{
+			margin-left:14%;
+		}
+	</style>
+</head>
+
+<body class="bg-dark text-white">
+	<div class="row">
+		<div class="column left" style="background-color:#aaa">
+			<img src="https://image.flaticon.com/icons/svg/3014/3014261.svg">
+		</div>
+		<div class="column right" style="background-color:rgb(245,222,179);">
+			<h1>LOGIN</h1>
+				<form action="Script.js">
+					<div class="form-group">
+						<input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+						<span id="usernameErrorMessage"></span>
+					</div>
+					<br>
+				</form>
+				<a href="Record.html" onclick="return loginValidate()"><button type="submit" class="btn btn-primary">SUBMIT</button></a>
+		</div>
+		<script src="./Script.js"></script>
+	</div>
+</body>
+</html>

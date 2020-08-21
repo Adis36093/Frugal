@@ -1,0 +1,67 @@
+<DOCTYPE! html>
+<html lang="en">
+<head>
+	<title>SIGNUP</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"
+      integrity=""
+      crossorigin="anonymous"
+  ></script>
+
+  <style>
+	  h1
+		{
+			text-align:center;
+			font-family:'"Comic Sans MS", cursive, sans-serif';
+			color:navajowhite;
+			margin-top:7%;
+		}
+
+		.container
+		{
+			height:300px;
+            width:500px;	
+			padding:70px;
+			margin-left:32%;
+			border-width:10px;	
+			border-style:groove;
+			border-radius:60px;
+		}
+
+		.form-control
+		{
+			width:360px;
+			margin-left:auto;
+		}
+
+		.btn
+		{
+			margin-left:37%;
+		}
+	</style>
+</head>
+
+<body class="bg-dark text-white">
+	<div>
+		<h1>Welcome!</h1>
+	</div>
+	<br><br><br><br><br>
+	<div class="container">
+		<form action="Script.js">
+			<div class="form-group">
+				<input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+				<span id="usernameErrorMessage"></span>
+			</div>
+			<br>
+		</form>
+		<a href="login.html" onclick="return signupValidate()"><button type="submit" class="btn btn-primary">Sign up</button></a>
+	</div>
+	<script src="./Script.js"></script>
+</body>
+</html>  
